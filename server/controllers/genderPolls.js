@@ -3,10 +3,11 @@ var genderPoll = mongoose.model("GenderPoll");
 
 module.exports={
 	show: function(req,res){
-		genderPoll.findOne({}, function(err, results){
+		genderPoll.findOrCreate({}, function(err, results){
 			if(err){
 					console.log(err);
 			}
+			
 			else{
 				res.json(results);
 			}
